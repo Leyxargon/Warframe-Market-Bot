@@ -43,8 +43,10 @@ class Oggetto:
 		return self.prezzo_mediano
 
 	def visualizza_annunci(self):
-		for i in sorted(self.annunci, key = lambda l: l.get('platinum')):
-			print(i.get('user').get('ingame_name') + ': ' + str(i.get('platinum')) + ' PL')
+		for i in sorted(self.annunci, key = lambda l: l.get('platinum'))[0:10]:
+			print(i.get('user').get('ingame_name') + ': ' + str(i.get('platinum')) + colorama.Fore.CYAN + ' PL')
+		if len(self.annunci) > 10:
+			print('...')
 
 		print('\n' + colorama.Back.BLUE + colorama.Fore.YELLOW + 'Mediana risalente a ieri: ' + str(self.prezzo_mediano) + ' PL')
 		print(colorama.Back.MAGENTA + colorama.Fore.WHITE + 'Prezzo minimo: ' + str(self.get_prezzo_min()) + ' PL')

@@ -11,15 +11,15 @@ Bot che monitora sul sito [Warframe Market](https://warframe.market) il prezzo m
 
 Lanciare da terminale il seguente comando
 
-```bash
-python3 main.py "[nome oggetto]"
-```
+	python3 main.py "[nome oggetto]" [prezzo di soglia in PL]
 
 Un esempio può essere
 
-```bash
-python3 main.py "equinox prime set"
-```
+	python3 main.py "equinox prime set"
+
+Altrimenti se si vuole ricevere maggiore attenzione su un prezzo fissato arbitrariamente, si passa tale valore come parametro aggiuntivo
+
+	python3 main.py "equinox prime set" 60
 
 Se la ricerca riconduce all'oggetto desiderato, verrà visualizzata una lista di annunci inerenti al dato oggetto.
 
@@ -31,10 +31,26 @@ Loose_lips: 74 PL
 420_Booty_wizard: 79 PL
 Shish: 80 PL
 
+Mediana risalente a ieri: 65 PL
 Prezzo minimo: 70 PL
 ```
 
 Ad intervalli regolari, la lista viene aggiornata e se viene piazzato un nuovo annuncio che presenta un prezzo ancor più piccolo, viene visualizzato un messaggio.
+
+```
+Equinox Prime Set
+GoodSamaritan: 44 PL
+0xDEADBEEF: 70 PL
+GET_REKT: 71 PL
+Loose_lips: 74 PL
+420_Booty_wizard: 79 PL
+Shish: 80 PL
+
+Mediana risalente a ieri: 65 PL
+Prezzo minimo: 44 PL
+
+GoodSamaritan ha piazzato un nuovo ordine minimo di 44 PL
+```
 
 ## Funzionamento
 
@@ -42,10 +58,4 @@ Il programma sfrutta le API [fornite dal sito stesso](https://warframe.market/ap
 
 ## Osservazioni
 
-Il bot fa quello che deve fare, ma è moooolto acerbo. Qui di seguito è presente una lista di cose che mi piacerebbe implementare:
-
-- Inserire un vero criterio di tracciamento del prezzo minimo
-
-- Implementare un sistema di notifiche
-
-- Introdurre la verifica su un prezzo a scelta (piuttosto che sul prezzo minimo trovato all'esecuzione del programma)
+Il bot fa quello che deve fare, ma è moooolto acerbo e sicuramente non è esente da bug, soprattutto nella logica di controllo dei prezzi. Inoltre manca un sistema di notifiche audio da terminale (possibilmente portabile).
